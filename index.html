@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wisata Gunung Merapi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="padding-top: 0;">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <img src="images/logo.png" alt="Logo" width="40" height="40">
+        <span>Wisata Merapi</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#wisata">Wisata</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero" class="bg-dark text-white text-center py-5 mt-5">
+    <div class="container">
+      <h1 class="display-4">Jelajahi Wisata Merapi</h1>
+      <p class="lead">Eksplorasi wisata alam yang menakjubkan di sekitar Gunung Merapi</p>
+      <div id="cuaca-sleman" class="mt-3">
+        <span class="spinner-border spinner-border-sm text-light" role="status"></span> Memuat cuaca Sleman...
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang" class="container my-5">
+    <h2 class="mb-3">Tentang Merapi</h2>
+    <p>Gunung Merapi adalah salah satu gunung berapi paling aktif di dunia, terletak di perbatasan Yogyakarta dan Jawa Tengah. Dikenal karena keindahan alam dan kekuatan alamnya, Merapi menjadi tujuan populer untuk wisata petualangan seperti jeep lava tour dan pendakian.</p>
+    <div class="mt-4">
+      <h5>Tonton Live Gunung Merapi</h5>
+      <div class="rounded overflow-hidden" style="max-width: 100%; height: 450px;">
+        <iframe
+          src="https://www.youtube.com/embed/O6gK-l2BjZU?autoplay=1&mute=1"
+          title="Live Merapi"
+          style="width: 100%; height: 450px; border: 0;"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="wisata" class="container my-5">
+    <h2 class="text-center mb-4">Destinasi Wisata Merapi</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/BukitKlangon.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Klangon">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Bukit Klangon</h5>
+            <p class="card-text">Tempat terbaik untuk melihat Gunung Merapi secara langsung.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-klangon" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('klangon')">Kirim</button>
+            </div>
+            <div id="comment-klangon" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/BungkerKaliadem.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Kaliadem">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Bunker Kaliadem</h5>
+            <p class="card-text">Bunker bersejarah dengan panorama erupsi Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-kaliadem" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('kaliadem')">Kirim</button>
+            </div>
+            <div id="comment-kaliadem" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/KaliTalang.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Kali Talang">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Kali Talang</h5>
+            <p class="card-text">Tempat edukatif mengenang letusan Merapi tahun 2010.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-kalitalang" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('kalitalang')">Kirim</button>
+            </div>
+            <div id="comment-kalitalang" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/MerapiGolfYogyakarta.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Golf">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Merapi Golf Yogyakarta</h5>
+            <p class="card-text">Main golf sambil menikmati keindahan Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-golf" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('golf')">Kirim</button>
+            </div>
+            <div id="comment-golf" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/StonehengeYogyakarta.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Stonehenge">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Stonehenge Merapi</h5>
+            <p class="card-text">Replika Stonehenge yang unik dan instagramable.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-stonehenge" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('stonehenge')">Kirim</button>
+            </div>
+            <div id="comment-stonehenge" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/PlunyonKalikuning.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Plunyon">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Plunyon Kalikuning</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-plunyon" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('plunyon')">Kirim</button>
+            </div>
+            <div id="comment-plunyon" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/TerasMerapi.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Teras">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Teras Merapi</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-teras" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('teras')">Kirim</button>
+            </div>
+            <div id="comment-teras" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/MusiumPetilasanMbahMaridjan.jpg" class="card-img-top h-100 w-100 object-fit-cover" alt="Petilasan">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Musium Petilasan Mbah Maridjan</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-petilasan" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('petilasan')">Kirim</button>
+            </div>
+            <div id="comment-petilasan" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/TlogoMuncar.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Muncar">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Tlogo Muncar</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-muncar" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('muncar')">Kirim</button>
+            </div>
+            <div id="comment-muncar" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/TheLostWorldCastle.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Castle">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">The Lost World Castle</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-castle" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('castle')">Kirim</button>
+            </div>
+            <div id="comment-castle" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/SuralokaInteractiveZoo.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Suraloka">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Suraloka Interactive Zoo</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-suraloka" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('suraloka')">Kirim</button>
+            </div>
+            <div id="comment-suraloka" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 12 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/WisataLavaMerapidanBatuAlien.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Batualien">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Wisata Lava Merapi dan Batu Alien</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-batualien" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('batualien')">Kirim</button>
+            </div>
+            <div id="comment-batualien" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 13 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/LavaTourMerapi.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Lavatour">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Lava Tour Merapi</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-lavatour" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('lavatour')">Kirim</button>
+            </div>
+            <div id="comment-lavatour" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 14 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div style="height: 200px; overflow: hidden;">
+            <img src="images/UllenSentaluMuseum.jpeg" class="card-img-top h-100 w-100 object-fit-cover" alt="Sentalu">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Ullen Sentalu Museum</h5>
+            <p class="card-text">Pemandangan jembatan dan sungai di bawah Gunung Merapi.</p>
+          </div>
+          <div class="card-footer">
+            <div class="icon-wrapper d-flex justify-content-center">
+              <i class="bi bi-heart me-2"></i>
+            </div>
+            <div class="comment-input">
+              <input type="text" class="form-control" id="input-sentalu" placeholder="Tulis komentar...">
+              <button class="btn btn-sm btn-primary mt-2" onclick="tambahKomentar('sentalu')">Kirim</button>
+            </div>
+            <div id="comment-sentalu" class="comment-section"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="kontak" class="container my-5">
+    <h2 class="mb-3">Kontak Kami</h2>
+    <form id="formKontak">
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" class="form-control" id="nama" required>
+      </div>
+      <div class="mb-3">
+        <label for="pesan" class="form-label">Pesan</label>
+        <textarea class="form-control" id="pesan" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    © 2025 Wisata Merapi
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  // Klik ikon love akan menukar antara bi-heart dan bi-heart-fill
+  document.querySelectorAll('.bi-heart').forEach(icon => {
+    icon.addEventListener('click', () => {
+      icon.classList.toggle('bi-heart');
+      icon.classList.toggle('bi-heart-fill');
+    });
+  });
+  </script>
+</body>
+</html>
