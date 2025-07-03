@@ -1,11 +1,10 @@
 {
-  "name": "Wisata Merapi",
+  "name": "Wisata Gunung Merapi",
   "short_name": "Merapi",
   "start_url": "../index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#212529",
-  "orientation": "portrait",
   "icons": [
     {
       "src": "../images/icon2.png",
