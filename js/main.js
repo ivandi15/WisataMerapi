@@ -1,3 +1,11 @@
+// Klik ikon love akan menukar antara bi-heart dan bi-heart-fill
+  document.querySelectorAll('.bi-heart').forEach(icon => {
+    icon.addEventListener('click', () => {
+      icon.classList.toggle('bi-heart');
+      icon.classList.toggle('bi-heart-fill');
+    });
+  });
+  
 // Bagian IndexDB pada komentar di setiap card
 const dbName = "KomentarDB";
   const storeName = "komentar";
@@ -96,3 +104,5 @@ const dbName = "KomentarDB";
     console.warn("Terjadi error global:", message);
     return true;
   };
+
+  
