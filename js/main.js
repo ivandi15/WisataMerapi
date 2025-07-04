@@ -5,7 +5,8 @@
       icon.classList.toggle('bi-heart-fill');
     });
   });
-  
+
+
 // Bagian IndexDB pada komentar di setiap card
 const dbName = "KomentarDB";
   const storeName = "komentar";
