@@ -1,4 +1,9 @@
-    body {
+.title-love {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+        body {
         padding-top: 70px; /* sesuai tinggi navbar */
     }
     .card img {
