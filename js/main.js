@@ -102,14 +102,14 @@ const dbName = "KomentarDB";
 
 // Background images for hero section
 const heroImages = [
-  '../images/Bg1.jpeg',
-  '../images/Bg4.jpeg',
-  '../images/Bg5.jpeg',
-  '../images/Bg7.jpeg',
-  '../images/Bg8.jpeg',
-  '../images/Bg9.jpeg',
-  '../images/Bg10.jpeg',
-  '../images/Bg11.jpeg'
+  'images/Bg1.jpeg',
+  'images/Bg4.jpeg',
+  'images/Bg5.jpeg',
+  'images/Bg7.jpeg',
+  'images/Bg8.jpeg',
+  'images/Bg9.jpeg',
+  'images/Bg10.jpeg',
+  'images/Bg11.jpeg'
 
 ];
 let heroIndex = 0;
