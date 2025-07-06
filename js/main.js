@@ -100,38 +100,6 @@ const dbName = "KomentarDB";
   // Panggil saat halaman dimuat
   document.addEventListener("DOMContentLoaded", tampilkanKomentar);
 
-// Background images for hero section
-const heroImages = [
-  'images/Bg1.jpeg',
-  'images/Bg4.jpeg',
-  'images/Bg5.jpeg',
-  'images/Bg7.jpeg',
-  'images/Bg8.jpeg',
-  'images/Bg9.jpeg',
-  'images/Bg10.jpeg',
-  'images/Bg11.jpeg'
-
-];
-let heroIndex = 0;
-
-function setHeroBackground() {
-  const hero = document.getElementById('hero');
-  if (hero) {
-    hero.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
-  }
-}
-
-function nextHeroBackground() {
-  heroIndex = (heroIndex + 1) % heroImages.length;
-  setHeroBackground();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  setHeroBackground();
-  setInterval(nextHeroBackground, 5000); // ganti gambar tiap 5 detik
-});
-
-
 // Koordinat Cangkringan, Sleman
   const lat = -7.6179;
   const lon = 110.4531;
