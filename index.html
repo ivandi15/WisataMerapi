@@ -9,7 +9,92 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="manifest" href="json/manifest.json">
   <meta name="theme-color" content="#212529">
-
+<style>
+  .title-love {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+      body {
+      padding-top: 70px; /* sesuai tinggi navbar */
+    }
+    .card img {
+      transition: transform 0.3s ease;
+    }
+    .card img:hover {
+      transform: scale(1.05);
+    }
+    .bi-heart, .bi-chat-left-text, .bi-heart-fill {
+      cursor: pointer;
+      transition: color 0.2s ease;
+      font-size: 1.5rem;
+      margin: 0 10px;
+    }
+    .bi-heart-fill {
+      color: red;
+    }
+    .comment-section {
+      max-height: 120px;
+      overflow-y: auto;
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .comment-input {
+      margin-top: 10px;
+    }
+    .comment-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+    }
+    .comment-box button {
+      border: none;
+      background: transparent;
+      color: red;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      cursor: pointer;
+    }
+    #hero {
+      margin-top: 0 !important;
+      padding-top: 8rem !important;
+      padding-bottom: 6rem !important;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 1s ease;
+      min-height: 89vh;
+      /* height: 60vh; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6); /* overlay gelap */
+      z-index: 1;
+    }
+    #hero > .container {
+      position: relative;
+      z-index: 2;
+    }
+    .navbar {
+      background: linear-gradient(135deg, rgb(0, 0, 142) 0%, rgb(0, 174, 174) 100%);
+      box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+    }
+    .navbar .nav-link.active, .navbar .nav-link:hover {
+      color: #FFC107 !important;
+    }
+</style>
 </head>
 <body style="padding-top: 0;">
 
@@ -430,34 +515,6 @@
         });
     });
   }
-  // Background images for hero section
-  const heroImages = [
-    'images/Bg1.jpeg',
-    'images/Bg4.jpeg',
-    'images/Bg5.jpeg',
-    'images/Bg7.jpeg',
-    'images/Bg8.jpeg',
-    'images/Bg9.jpeg',
-    'images/Bg10.jpeg',
-    'images/Bg11.jpeg'
-  ];
-  let heroIndex = 0;
-  function setHeroBackground() {
-    const hero = document.getElementById('hero');
-    if (hero) {
-      hero.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
-    }
-  }
-
-  function nextHeroBackground() {
-    heroIndex = (heroIndex + 1) % heroImages.length;
-    setHeroBackground();
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    setHeroBackground();
-    setInterval(nextHeroBackground, 5000); // ganti gambar tiap 5 detik
-  });
   </script>
 </body>
 </html>
