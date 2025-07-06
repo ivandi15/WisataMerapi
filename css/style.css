@@ -3,8 +3,8 @@
       justify-content: space-between;
       align-items: center;
     }
-        body {
-        padding-top: 70px; /* sesuai tinggi navbar */
+      body {
+      padding-top: 70px; /* sesuai tinggi navbar */
     }
     .card img {
       transition: transform 0.3s ease;
@@ -53,4 +53,32 @@
       margin-top: 0 !important;
       padding-top: 8rem !important;
       padding-bottom: 6rem !important;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 1s ease;
+      min-height: 89vh;
+      /* height: 60vh; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6); /* overlay gelap */
+      z-index: 1;
+    }
+    #hero > .container {
+      position: relative;
+      z-index: 2;
+    }
+    .navbar {
+      background: linear-gradient(135deg, rgb(0, 0, 142) 0%, rgb(0, 174, 174) 100%);
+      box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+    }
+    .navbar .nav-link.active, .navbar .nav-link:hover {
+      color: #FFC107 !important;
     }

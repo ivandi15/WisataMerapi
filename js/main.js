@@ -100,10 +100,86 @@ const dbName = "KomentarDB";
   // Panggil saat halaman dimuat
   document.addEventListener("DOMContentLoaded", tampilkanKomentar);
 
-  // Tangkap error global untuk debugging mobile
-  window.onerror = function (message, source, lineno, colno, error) {
-    console.warn("Terjadi error global:", message);
-    return true;
-  };
+// Background images for hero section
+const heroImages = [
+  '../images/Bg1.jpeg',
+  '../images/Bg4.jpeg',
+  '../images/Bg5.jpeg',
+  '../images/Bg7.jpeg',
+  '../images/Bg8.jpeg',
+  '../images/Bg9.jpeg',
+  '../images/Bg10.jpeg',
+  '../images/Bg11.jpeg'
 
-  
+];
+let heroIndex = 0;
+
+function setHeroBackground() {
+  const hero = document.getElementById('hero');
+  if (hero) {
+    hero.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
+  }
+}
+
+function nextHeroBackground() {
+  heroIndex = (heroIndex + 1) % heroImages.length;
+  setHeroBackground();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setHeroBackground();
+  setInterval(nextHeroBackground, 5000); // ganti gambar tiap 5 detik
+});
+
+
+// Koordinat Cangkringan, Sleman
+  const lat = -7.6179;
+  const lon = 110.4531;
+
+  // Mengambil data cuaca dari Open-Meteo
+  fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      const cw = data.current_weather;
+      const suhu = cw.temperature;
+      const angin = cw.windspeed;
+      const kodeCuaca = cw.weathercode;
+
+      const deskripsiCuaca = getDeskripsiCuaca(kodeCuaca);
+
+      document.getElementById("cuaca-sleman").innerHTML = `
+        <span class="text-white">
+          <strong>Cuaca Cangkringan:</strong> ${deskripsiCuaca} <br>
+          🌡️ Suhu: ${suhu}°C, 🌬️ Angin: ${angin} m/s
+        </span>
+      `;
+    })
+    .catch((error) => {
+      document.getElementById("cuaca-sleman").innerHTML =
+        "Gagal mengambil data cuaca.";
+      console.error("Gagal mengambil data cuaca:", error);
+    });
+
+  // Konversi kode cuaca ke deskripsi
+  function getDeskripsiCuaca(kode) {
+    const kondisi = {
+      0: "Cerah",
+      1: "Cerah Berawan",
+      2: "Berawan",
+      3: "Berawan Tebal",
+      45: "Berkabut",
+      48: "Kabut Beku",
+      51: "Gerimis Ringan",
+      53: "Gerimis Sedang",
+      55: "Gerimis Lebat",
+      61: "Hujan Ringan",
+      63: "Hujan Sedang",
+      65: "Hujan Lebat",
+      80: "Hujan Lokal",
+      81: "Hujan Luas",
+      82: "Hujan Deras Luas",
+    };
+    return kondisi[kode] || "Cuaca tidak diketahui";
+  }

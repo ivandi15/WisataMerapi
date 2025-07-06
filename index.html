@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="manifest" href="json/manifest.json">
   <meta name="theme-color" content="#212529">
+
 </head>
 <body style="padding-top: 0;">
 
@@ -21,11 +22,11 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
-          <li class="nav-item"><a class="nav-link" href="#wisata">Wisata</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+      <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item "><a class="nav-link text-white" href="#tentang">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#wisata">Wisata</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#kontak">Kontak</a></li>
         </ul>
       </div>
     </div>
@@ -33,7 +34,7 @@
 
   <section id="hero" class="bg-dark text-white text-center py-5 mt-5 border border-dark rounded shadow">
     <div class="container">
-      <h1 class="display-4">Jelajahi Wisata Merapi</h1>
+      <h1 class="display-4 fw-bold">Jelajahi Wisata Merapi</h1>
       <p class="lead">Eksplorasi wisata alam yang menakjubkan di sekitar Gunung Merapi</p>
       <div id="cuaca-sleman" class="mt-3">
         <span class="spinner-border spinner-border-sm text-light" role="status"></span> Memuat cuaca Cangkringan...
@@ -42,10 +43,18 @@
   </section>
 
   <section id="tentang" class="container my-5 border border-dark rounded shadow p-4">
-    <h2 class="mb-3">Tentang Merapi</h2>
-    <p>Gunung Merapi adalah salah satu gunung berapi paling aktif di dunia, terletak di perbatasan Yogyakarta dan Jawa Tengah. Dikenal karena keindahan alam dan kekuatan alamnya, Merapi menjadi tujuan populer untuk wisata petualangan seperti jeep lava tour dan pendakian.</p>
+    <h2 class="text-center mb-3">Tentang Merapi</h2>
+    <p>
+    Gunung Merapi adalah salah satu gunung berapi paling aktif di dunia yang terletak di perbatasan antara Provinsi Daerah Istimewa Yogyakarta dan Jawa Tengah, Indonesia. Dengan ketinggian sekitar 2.930 meter di atas permukaan laut, Merapi menjadi simbol kekuatan alam sekaligus daya tarik wisata yang luar biasa.
+    </p>
+    <p>
+      Selain sebagai objek penelitian vulkanologi, Gunung Merapi juga menjadi tujuan favorit para pecinta alam, pendaki, dan wisatawan lokal maupun mancanegara. Kawasan sekitarnya menyuguhkan berbagai destinasi menarik seperti lava tour, wisata jeep, bunker bersejarah, hingga panorama alam yang menakjubkan.
+    </p>
+    <p>
+      Erupsi terakhir Merapi turut membentuk lanskap baru yang kini dijadikan tempat wisata edukatif dan fotografi. Tak hanya menawarkan petualangan, kawasan Merapi juga menyimpan budaya dan kisah spiritual yang kental, seperti legenda Mbah Maridjan, juru kunci Merapi yang dikenal karena kesetiaannya menjaga gunung ini.
+    </p>
     <div class="mt-4">
-      <h5>Tonton Live Gunung Merapi</h5>
+      <h5 class="text-center">Tonton Live Gunung Merapi untuk Memantau Kondisi dan Cuaca di Gunung Merapi</h5>
       <div class="rounded overflow-hidden" style="max-width: 100%; height: 450px;">
         <iframe
           src="https://www.youtube.com/embed/jb0oav_-u4s?si=mkWyC0IVr7nZqU4b&autoplay=1&mute=1"
@@ -403,8 +412,8 @@
     </form>
   </section>
 
-  <footer class="bg-dark text-white text-center py-3">
-    © 2025 Wisata Merapi
+  <footer class="bg-warning text-white text-center py-3">
+    © 2025 Wisata Merapi | ivandi15
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -421,60 +430,6 @@
         });
     });
   }
-
-  // Koordinat Cangkringan, Sleman
-  const lat = -7.6179;
-  const lon = 110.4531;
-
-  // Mengambil data cuaca dari Open-Meteo
-  fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      const cw = data.current_weather;
-      const suhu = cw.temperature;
-      const angin = cw.windspeed;
-      const kodeCuaca = cw.weathercode;
-
-      const deskripsiCuaca = getDeskripsiCuaca(kodeCuaca);
-
-      document.getElementById("cuaca-sleman").innerHTML = `
-        <div class="text-white bg-dark bg-opacity-75 p-2 rounded">
-          <strong>Cuaca Cangkringan:</strong> ${deskripsiCuaca} <br>
-          🌡️ Suhu: ${suhu}°C, 🌬️ Angin: ${angin} m/s
-        </div>
-      `;
-    })
-    .catch((error) => {
-      document.getElementById("cuaca-sleman").innerHTML =
-        "Gagal mengambil data cuaca.";
-      console.error("Gagal mengambil data cuaca:", error);
-    });
-
-  // Konversi kode cuaca ke deskripsi
-  function getDeskripsiCuaca(kode) {
-    const kondisi = {
-      0: "Cerah",
-      1: "Cerah Berawan",
-      2: "Berawan",
-      3: "Berawan Tebal",
-      45: "Berkabut",
-      48: "Kabut Beku",
-      51: "Gerimis Ringan",
-      53: "Gerimis Sedang",
-      55: "Gerimis Lebat",
-      61: "Hujan Ringan",
-      63: "Hujan Sedang",
-      65: "Hujan Lebat",
-      80: "Hujan Lokal",
-      81: "Hujan Luas",
-      82: "Hujan Deras Luas",
-    };
-    return kondisi[kode] || "Cuaca tidak diketahui";
-  }
-
-
 
   </script>
 </body>
