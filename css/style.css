@@ -1,4 +1,4 @@
-    .title-love {
+.title-love {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -81,4 +81,49 @@
     }
     .navbar .nav-link.active, .navbar .nav-link:hover {
       color: #FFC107 !important;
+    }
+    /* Animasi hamburger ke X */
+    .navbar-toggler {
+      border: none;
+      background: transparent;
+      outline: none;
+      box-shadow: none !important;
+    }
+    .navbar-toggler .navbar-toggler-icon {
+      width: 30px;
+      height: 3px;
+      background: #fff;
+      display: block;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .navbar-toggler .navbar-toggler-icon::before,
+    .navbar-toggler .navbar-toggler-icon::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: #fff;
+      transition: transform 0.3s, top 0.3s, bottom 0.3s, opacity 0.3s;
+    }
+    .navbar-toggler .navbar-toggler-icon::before {
+      top: -10px;
+    }
+    .navbar-toggler .navbar-toggler-icon::after {
+      bottom: -10px;
+    }
+    .navbar-toggler.collapsed .navbar-toggler-icon {
+      background: #fff;
+    }
+    .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+      background: transparent;
+    }
+    .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+    .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+      bottom: 0;
     }
