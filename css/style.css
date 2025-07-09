@@ -82,7 +82,7 @@
     .navbar .nav-link.active, .navbar .nav-link:hover {
       color: #FFC107 !important;
     }
-    /* Animasi hamburger ke X */
+    /* Animasi hamburger ke X dengan efek rotasi */
     .navbar-toggler {
       border: none;
       background: transparent;
@@ -95,7 +95,7 @@
       background: #fff;
       display: block;
       position: relative;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
     }
     .navbar-toggler .navbar-toggler-icon::before,
     .navbar-toggler .navbar-toggler-icon::after {
@@ -105,25 +105,37 @@
       width: 30px;
       height: 3px;
       background: #fff;
-      transition: transform 0.3s, top 0.3s, bottom 0.3s, opacity 0.3s;
+      transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), top 0.3s, bottom 0.3s, opacity 0.3s;
     }
     .navbar-toggler .navbar-toggler-icon::before {
       top: -10px;
+      transform: rotate(0deg);
     }
     .navbar-toggler .navbar-toggler-icon::after {
       bottom: -10px;
+      transform: rotate(0deg);
     }
     .navbar-toggler.collapsed .navbar-toggler-icon {
       background: #fff;
+      transform: rotate(0deg);
+    }
+    .navbar-toggler.collapsed .navbar-toggler-icon::before {
+      top: -10px;
+      transform: rotate(0deg);
+    }
+    .navbar-toggler.collapsed .navbar-toggler-icon::after {
+      bottom: -10px;
+      transform: rotate(0deg);
     }
     .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
       background: transparent;
+      transform: rotate(180deg);
     }
     .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
-      transform: rotate(45deg);
+      transform: rotate(45deg) scaleX(1.1);
       top: 0;
     }
     .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
-      transform: rotate(-45deg);
+      transform: rotate(-45deg) scaleX(1.1);
       bottom: 0;
     }
